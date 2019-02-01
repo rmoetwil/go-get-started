@@ -3,6 +3,7 @@ GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
+GOTOOL=$(GOCMD) tool
 GOGET=$(GOCMD) get
 BINARY_NAME=go-get-started
 
@@ -23,3 +24,7 @@ run:
 
 lint:
 	gometalinter ./...
+
+cover:
+	$(GOTEST) -coverprofile c.out
+	$(GOTOOL) cover -html=c.out
