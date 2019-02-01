@@ -12,7 +12,7 @@ Add a Makefile to make life easier. ;-)
 ## Go Metalinter
 See [here](https://github.com/alecthomas/gometalinter) for more instructions.
 
-Basically run `curl -L https://git.io/vp6lP | sh` from GOROOT directory to install the metalinter.
+Basically run `curl -L https://git.io/vp6lP | sh` from GOPATH directory to install the metalinter.
 
 ## Go Coverage
 To create a test coverage run `make cover`.

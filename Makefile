@@ -9,15 +9,18 @@ BINARY_NAME=go-get-started
 
 all: clean test build
 
-build:
-	$(GOBUILD) -o $(BINARY_NAME) -v
+clean:
+	$(GOCLEAN)
+	rm -f $(BINARY_NAME)
 
 test:
 	$(GOTEST) -v ./...
 
-clean:
-	$(GOCLEAN)
-	rm -f $(BINARY_NAME)
+bench:
+	$(GOTEST) -bench .
+
+build:
+	$(GOBUILD) -o $(BINARY_NAME) -v
 
 run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./... ./$(BINARY_NAME)
@@ -28,3 +31,6 @@ lint:
 cover:
 	$(GOTEST) -coverprofile c.out
 	$(GOTOOL) cover -html=c.out
+
+doc:
+	godoc -http=:9000
