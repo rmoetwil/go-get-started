@@ -1,36 +1,32 @@
-# Go parameters
-GOCMD=go
-GOBUILD=$(GOCMD) build
-GOCLEAN=$(GOCMD) clean
-GOTEST=$(GOCMD) test
-GOTOOL=$(GOCMD) tool
-GOGET=$(GOCMD) get
-BINARY_NAME=go-get-started
+
+# TODO Make bench, test, cover
+
+.PHONY: all clean test bench build run cover doc dep
 
 all: clean test build
 
 clean:
-	$(GOCLEAN)
-	rm -f $(BINARY_NAME)
+	go clean
+	rm -f ./bin/helloworld
 
 test:
-	$(GOTEST) -v ./...
+	go test -v ./...
 
 bench:
-	$(GOTEST) -bench .
+	go test -bench ./cmd/helloworld
 
 build:
-	$(GOBUILD) -o $(BINARY_NAME) -v
+	go build -o ./bin/helloworld ./cmd/helloworld
 
 run:
-	$(GOBUILD) -o $(BINARY_NAME) -v ./... ./$(BINARY_NAME)
-
-lint:
-	gometalinter ./...
+	go run ./cmd/helloworld
 
 cover:
-	$(GOTEST) -coverprofile c.out
-	$(GOTOOL) cover -html=c.out
+	go test -coverprofile=c.out
+	go tool cover -html=c.out
 
 doc:
 	godoc -http=:9000
+
+dep:
+	go mod download

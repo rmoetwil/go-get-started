@@ -1,18 +1,17 @@
 # Go Get Started
 A Go project containing several components to bootstrap your new Go adventure.
 
+## Project Layout 
+See [golang-standards/project-layout](https://github.com/golang-standards/project-layout) for best practices for setting
+up your project.
+
 ## Go Modules
 Run `go mod init` to create a standard go.mod file for your current project.
 
-See [Go Modules](Ihttps://golang.org/cmd/go/#hdr-Module_maintenance) for more details.
+See [Go Modules](https://pkg.go.dev/cmd/go#hdr-Module_maintenance) for more details.
 
 ## Makefile
 Add a Makefile to make life easier. ;-)
-
-## Go Metalinter
-See [here](https://github.com/alecthomas/gometalinter) for more instructions.
-
-Basically run `curl -L https://git.io/vp6lP | sh` from GOPATH directory to install the metalinter.
 
 ## Go Coverage
 To create a test coverage run `make cover`.

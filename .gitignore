@@ -12,4 +12,5 @@
 *.out
 
 
-go-get-started
+bin/**
+!bin/.gitkeep
