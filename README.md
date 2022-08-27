@@ -16,3 +16,10 @@ Add a Makefile to make life easier. ;-)
 ## Go Coverage
 To create a test coverage run `make cover`.
 It will run the tests with coverage measuring and then will open a browser showing the results.
+
+## Static Check
+
+Install [Static Check](https://staticcheck.io/):
+
+Run `go install honnef.co/go/tools/cmd/staticcheck@latest`
+

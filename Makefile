@@ -1,5 +1,5 @@
 
-.PHONY: all clean test bench build run cover doc dep
+.PHONY: all clean test bench build run cover doc dep static
 
 all: clean test build
 
@@ -23,6 +23,8 @@ cover:
 	go test -v ./... -coverprofile=coverprofile.out
 	go tool cover -html=coverprofile.out
 
+static:
+	staticcheck ./...
 doc:
 	godoc -http=:9000
 
