@@ -1,6 +1,4 @@
 
-# TODO Make bench, test, cover
-
 .PHONY: all clean test bench build run cover doc dep
 
 all: clean test build
@@ -13,7 +11,7 @@ test:
 	go test -v ./...
 
 bench:
-	go test -bench ./cmd/helloworld
+	go test -bench -v ./...
 
 build:
 	go build -o ./bin/helloworld ./cmd/helloworld
@@ -22,8 +20,8 @@ run:
 	go run ./cmd/helloworld
 
 cover:
-	go test -coverprofile=c.out
-	go tool cover -html=c.out
+	go test -v ./... -coverprofile=coverprofile.out
+	go tool cover -html=coverprofile.out
 
 doc:
 	godoc -http=:9000
